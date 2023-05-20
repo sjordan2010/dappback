@@ -69,10 +69,10 @@ export default function App() {
     <>
       <Header />
       <main className="w-full flex flex-col items-center gap-10">
-        <h1 className="text-center">Hey {user?.username}</h1>
+        <h1 className="text-center light:brightness-90">Hey {user?.username}</h1>
         <div className="flex flex-col gap-4 items-center w-72">
           <button
-            className="flex items-center justify-center border rounded-xl bg-purple-400 border-none w-full px-10 py-4 text-lg hover:brightness-90 disabled:bg-gray-500 disabled:border-none disabled:text-gray-400"
+            className="flex items-center justify-center text-white shadow-md hover:shadow-xl border rounded-xl bg-purple-400 border-none w-full px-10 py-4 text-lg hover:brightness-90 disabled:bg-gray-500 disabled:border-none disabled:text-gray-400"
             onClick={handleStreak}
           >
             Up your streak

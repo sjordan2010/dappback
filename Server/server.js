@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", userController.findUser, (req, res) => {
-
   if (res.locals.user) {
     return res.status(200).json(res.locals.user);
   } else {
@@ -24,7 +23,7 @@ app.post("/login", userController.findUser, (req, res) => {
 });
 
 app.post("/register", userController.createUser, (req, res) => {
-  console.log('res newUSer in server-27', res.locals.newUser)
+  console.log("res newUSer in server-27", res.locals.newUser);
   if (res.locals.newUser) {
     return res.status(200).json(res.locals.newUser);
   } else {

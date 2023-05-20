@@ -27,7 +27,7 @@ export default function Register({ setUser, setLoggedIn, setStreak, setIsNewUser
     })
       .then((res) => res.json())
       .then((user) => {
-        console.log('registered user', user)
+        console.log("registered user", user);
         if (user === "unable to create user") {
           setInvalidUsername(true);
           setUsername("");
@@ -50,7 +50,7 @@ export default function Register({ setUser, setLoggedIn, setStreak, setIsNewUser
       <form className="flex flex-col gap-3 mb-1" onSubmit={handleRegister}>
         {invalidUsername && <span>Sorry, that username is unavailable</span>}
         <input
-          className="px-4 py-1 rounded-sm w-72"
+          className="px-4 py-1 rounded-sm w-72 shadow-md"
           type="text"
           value={username}
           placeholder="username"
@@ -58,7 +58,7 @@ export default function Register({ setUser, setLoggedIn, setStreak, setIsNewUser
           required
         />
         <input
-          className="px-4 py-1 rounded-sm w-72"
+          className="px-4 py-1 rounded-sm w-72 shadow-md"
           type="password"
           value={password}
           placeholder="password"
@@ -66,7 +66,7 @@ export default function Register({ setUser, setLoggedIn, setStreak, setIsNewUser
           required
         />
         <button
-          className="w-full bg-purple-400 rounded-xl px-8 py-1 hover:brightness-90"
+          className="w-full bg-purple-400 text-white rounded-xl px-8 py-1 shadow-md hover:brightness-90"
           type="submit"
         >
           Register

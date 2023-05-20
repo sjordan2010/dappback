@@ -1,13 +1,13 @@
-import "./Streak.css"
+import "./Streak.css";
 
 interface StreakProps {
-    streak: number
+  streak: number;
 }
 
-export default function Streak( { streak }: StreakProps) {
+export default function Streak({ streak }: StreakProps) {
   return (
     <div className="streakBox w-24 h-24 p-4 flex items-center justify-center">
-        <span className="text-2xl">{streak}</span>
+      <span className="text-2xl">{streak}</span>
     </div>
-  )
+  );
 }
