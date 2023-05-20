@@ -18,7 +18,6 @@ export default function Register({ setUser, setLoggedIn, setStreak, setIsNewUser
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + 7);
 
-    // console.log(username, password);
     fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
@@ -28,6 +27,7 @@ export default function Register({ setUser, setLoggedIn, setStreak, setIsNewUser
     })
       .then((res) => res.json())
       .then((user) => {
+        console.log('registered user', user)
         if (user === "unable to create user") {
           setInvalidUsername(true);
           setUsername("");

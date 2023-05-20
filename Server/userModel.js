@@ -1,4 +1,4 @@
-import mongooseInstance from "./db.js";
+import mongooseInstance from "./db.cjs";
 
 const userSchema = mongooseInstance.Schema(
   {

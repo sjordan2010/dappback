@@ -1,5 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
-import "./Login.css";
+import { FormEvent, useState } from "react";
 import { User } from "../App";
 
 interface LoginProps {
@@ -19,7 +18,6 @@ export default function Login({ setUser, setLoggedIn, setStreak, setIsNewUser }:
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + 7);
 
-    // console.log(username, password);
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {

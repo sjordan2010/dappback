@@ -4,7 +4,6 @@ const userController = {};
 
 userController.findUser = (req, res, next) => {
   const { username, password } = req.body;
-
   User.findOne({ username, password })
     .then((user) => {
       if (user) {
@@ -22,28 +21,31 @@ userController.findUser = (req, res, next) => {
 
 userController.createUser = (req, res, next) => {
   const { username, password } = req.body;
-
-  User.findOne({ username }).then((user) => {
-    if (!user) {
-      User.create({ username, password })
-        .then((newUser) => {
-          res.locals.newUser = newUser;
-          console.log("new user", newUser);
-          return next();
-        })
-        .catch((error) => {
-          console.log("error: ", error);
-          res.status(500).json("Internal Server Error");
-        });
-    } 
-  });
-
-  return next()
+  User.findOne({ username })
+    .then((user) => {
+      if (!user) {
+        User.create({ username, password })
+          .then((newUser) => {
+            res.locals.newUser = newUser;
+            console.log("new user", newUser, res.locals.newUser);
+            next(); // Move next() here
+          })
+          .catch((error) => {
+            console.log("error: ", error);
+            res.status(500).json("Internal Server Error");
+          });
+      } else {
+        next();
+      }
+    })
+    .catch((error) => {
+      console.log("error: ", error);
+      res.status(500).json("Internal Server Error");
+    });
 };
 
 userController.setStreak = (req, res, next) => {
   const { username, streak, date } = req.body;
-
   User.findOneAndUpdate({ username }, { consecutiveClickDays: streak + 1 }, { new: true })
     .then((updatedUser) => {
       res.locals.newStreak = updatedUser.consecutiveClickDays;

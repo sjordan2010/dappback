@@ -15,18 +15,20 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", userController.findUser, (req, res) => {
+
   if (res.locals.user) {
-    res.status(200).json(res.locals.user);
+    return res.status(200).json(res.locals.user);
   } else {
-    res.status(200).json("no user");
+    return res.status(200).json("no user");
   }
 });
 
 app.post("/register", userController.createUser, (req, res) => {
+  console.log('res newUSer in server-27', res.locals.newUser)
   if (res.locals.newUser) {
-    res.status(200).json(res.locals.newUser);
+    return res.status(200).json(res.locals.newUser);
   } else {
-    res.status(200).json("unable to create user");
+    return res.status(200).json("unable to create user");
   }
 });
 
@@ -35,14 +37,14 @@ app.put("/streak", userController.setStreak, (req, res) => {
 });
 
 // error handler
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   const defaultErr = {
     log: "Express error handler caught unknown middleware error",
     status: 500,
     message: { err: "An error occurred" },
   };
   const errorObj = Object.assign({}, defaultErr, err);
-  console.log(errorObj.log);
+  console.log("ERROR OBJ", errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
 

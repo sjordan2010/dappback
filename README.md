@@ -6,3 +6,4 @@
 - Tailwind
 - Node
 - Express
+- MongoDB
