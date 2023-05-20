@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  /* max-width: 1280px; */
+  margin: 0;
+  /* padding: 2rem; */
+  /* text-align: center; */
+}
+
+h1 {
+  font-size: 72px;
+  background: linear-gradient(
+    245.86deg,
+    rgb(250, 236, 200) 26.74%,
+    rgb(174, 240, 255) 40.26%,
+    rgb(178, 203, 245) 75.11%,
+    rgb(195, 182, 246) 97.2%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
