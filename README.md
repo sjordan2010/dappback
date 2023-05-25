@@ -1,12 +1,15 @@
-# Stefan Jordan + Dappback Assessment
+# Stefan Jordan + Dappback in 3 hours
 
 ## Instructions: 
-1. Open the folder
-2. Open your terminal and navigate to the root directory
+1. Clone this repo to your machine
+2. Create your MongoDB instance
+3. Make sure to create a `.env` file and add your `DB_URL="mongoDB connection string"`
+4. Open your terminal and navigate to the root directory
     - Run `npm i` to install the dependencies
     - Run `npm run dev`
-3. Navigate to [localhost:5173](http://localhost:5173) in your browser
-4. Register a new user or login with username: ok, password: ok
+    - Or run `npm run build` to create the production version followed by `npm start`
+5. Navigate to [localhost:5173](http://localhost:5173) in your browser
+6. Register a new user or login with username: ok, password: ok
 ---
 ## Built with:
 - Vite
